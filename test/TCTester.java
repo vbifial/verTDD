@@ -121,7 +121,7 @@ public class TCTester extends TestCase {
 				break;
 			cnt++;
 		}
-		assertEquals(cnt, 3);
+		assertEquals(3, cnt);
 	}
 	
 }

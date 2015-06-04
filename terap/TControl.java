@@ -9,6 +9,8 @@ public class TControl {
 	HashSet<String> hasFactor = new HashSet<String>();
 	TreeSet<String> matchedDeseases = new TreeSet<String>();
 	Vector<String> deseases = new Vector<String>();
+	Vector<String> vfactors = new Vector<String>();
+	int curFactor = 0;
 	
 	public void addRecord(String desease, String[] factors) {
 		deseases.add(desease);
@@ -20,7 +22,8 @@ public class TControl {
 	}
 	
 	public String getNextFactor() {
-		
+		if (curFactor < vfactors.size())
+			return vfactors.get(curFactor++);
 		return null;
 	}
 	
@@ -30,6 +33,7 @@ public class TControl {
 	
 	public void checkFactor(String factor) {
 		if (!isFactorOld(factor)) {
+			vfactors.add(factor);
 			hasFactor.add(factor);
 		}
 	}
