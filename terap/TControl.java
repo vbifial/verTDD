@@ -1,6 +1,10 @@
 package terap;
 
+import java.util.HashSet;
+
 public class TControl {
+	
+	HashSet<String> hasFactor = new HashSet<String>();
 	
 	public void addRecord(String desease, String[] factors) {
 		
@@ -16,14 +20,13 @@ public class TControl {
 	}
 	
 	public void checkFactor(String factor) {
-		
+		if (!isFactorOld(factor)) {
+			hasFactor.add(factor);
+		}
 	}
 	
 	public boolean isFactorOld(String factor) {
-		if (factor.equals("headsick"))
-			return true;
-		
-		return false;
+		return hasFactor.contains(factor);
 	}
 	
 	public int matchesCount() {
