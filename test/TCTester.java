@@ -75,4 +75,17 @@ public class TCTester extends TestCase {
 		}
 	}
 	
+	public void testRecordsSimple() {
+		String desease = "cold";
+		String[] factors = {"cough", "fever", "headsick"};
+		m.addRecord(desease, factors);
+		for (int i = 0; i < factors.length; i++) {
+			assertTrue(m.isFactorOld(factors[i]));
+		}
+		String[] badFactors = {"illness", "", "cat", "heat"};
+		for (int i = 0; i < badFactors.length; i++) {
+			assertFalse(m.isFactorOld(badFactors[i]));
+		}
+	}
+	
 }
