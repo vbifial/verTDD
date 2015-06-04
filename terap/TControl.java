@@ -1,12 +1,18 @@
 package terap;
 
 import java.util.HashSet;
+import java.util.TreeSet;
+import java.util.Vector;
 
 public class TControl {
 	
 	HashSet<String> hasFactor = new HashSet<String>();
+	TreeSet<String> matchedDeseases = new TreeSet<String>();
+	Vector<String> deseases = new Vector<String>();
 	
 	public void addRecord(String desease, String[] factors) {
+		deseases.add(desease);
+		matchedDeseases.add(desease);
 		
 		for (int i = 0; i < factors.length; i++) {
 			checkFactor(factors[i]);
@@ -33,8 +39,7 @@ public class TControl {
 	}
 	
 	public int matchesCount() {
-		
-		return 0;
+		return matchedDeseases.size();
 	}
 	
 	public String match() {
