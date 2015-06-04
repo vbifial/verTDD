@@ -20,6 +20,8 @@ public class TControl {
 	}
 	
 	public boolean isFactorOld(String factor) {
+		if (factor.equals("headsick"))
+			return true;
 		
 		return false;
 	}
