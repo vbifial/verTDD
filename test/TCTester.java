@@ -88,4 +88,17 @@ public class TCTester extends TestCase {
 		}
 	}
 	
+	public void testMatchesSimple() {
+		String desease = "cold";
+		String[] factors = {"cough", "fever", "headsick"};
+		String desease2 = "sick";
+		String[] factors2 = {"headsick"};
+		String desease3 = "cancer";
+		String[] factors3 = {"fever"};
+		m.addRecord(desease, factors);
+		m.addRecord(desease2, factors2);
+		m.addRecord(desease3, factors3);
+		assertEquals(3, m.matchesCount());
+	}
+	
 }
