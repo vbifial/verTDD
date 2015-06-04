@@ -28,4 +28,10 @@ public class TCTester extends TestCase {
 		assertFalse(m.isFactorOld(checking));
 	}
 	
+	public void testCheckFactorPresenceSimple() {
+		String factor = "headsick";
+		m.checkFactor(factor);
+		assertTrue(m.isFactorOld(factor));
+	}
+	
 }
