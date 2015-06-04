@@ -71,9 +71,9 @@ public class TCTester extends TestCase {
 	}
 	
 	public void testRecordsSimple() {
-		String desease = "cold";
+		String disease = "cold";
 		String[] factors = {"cough", "fever", "headsick"};
-		m.addRecord(desease, factors);
+		m.addRecord(disease, factors);
 		for (int i = 0; i < factors.length; i++) {
 			assertTrue(m.isFactorOld(factors[i]));
 		}
@@ -84,31 +84,31 @@ public class TCTester extends TestCase {
 	}
 	
 	public void testMatchesSimple() {
-		String desease = "cold";
+		String disease = "cold";
 		String[] factors = {"cough", "fever", "headsick"};
-		String desease2 = "sick";
+		String disease2 = "sick";
 		String[] factors2 = {"headsick"};
-		String desease3 = "cancer";
+		String disease3 = "cancer";
 		String[] factors3 = {"fever"};
-		String desease4 = "cold2";
+		String disease4 = "cold2";
 		String[] factors4 = {"cough"};
-		m.addRecord(desease, factors);
-		m.addRecord(desease2, factors2);
-		m.addRecord(desease3, factors3);
-		m.addRecord(desease4, factors4);
+		m.addRecord(disease, factors);
+		m.addRecord(disease2, factors2);
+		m.addRecord(disease3, factors3);
+		m.addRecord(disease4, factors4);
 		assertEquals(4, m.matchesCount());
 	}
 	
 	public void testFactorsIterationSimple() {
-		String desease = "cold";
+		String disease = "cold";
 		String[] factors = {"cough", "fever", "headsick"};
-		String desease2 = "sick";
+		String disease2 = "sick";
 		String[] factors2 = {"headsick"};
-		String desease3 = "cancer";
+		String disease3 = "cancer";
 		String[] factors3 = {"fever"};
-		m.addRecord(desease, factors);
-		m.addRecord(desease2, factors2);
-		m.addRecord(desease3, factors3);
+		m.addRecord(disease, factors);
+		m.addRecord(disease2, factors2);
+		m.addRecord(disease3, factors3);
 		int cnt = 0;
 		while (true) {
 			String s = m.getNextFactor();
@@ -120,15 +120,15 @@ public class TCTester extends TestCase {
 	}
 	
 	public void testApplyAnswerSimple() {
-		String desease = "cold";
+		String disease = "cold";
 		String[] factors = {"cough", "fever", "headsick"};
-		String desease2 = "sick";
+		String disease2 = "sick";
 		String[] factors2 = {"headsick"};
-		String desease3 = "cancer";
+		String disease3 = "cancer";
 		String[] factors3 = {"fever"};
-		m.addRecord(desease, factors);
-		m.addRecord(desease2, factors2);
-		m.addRecord(desease3, factors3);
+		m.addRecord(disease, factors);
+		m.addRecord(disease2, factors2);
+		m.addRecord(disease3, factors3);
 		assertEquals(3, m.matchesCount());
 		String s = "";
 		while (!s.equals("fever")) {
@@ -139,15 +139,15 @@ public class TCTester extends TestCase {
 	}
 	
 	public void testMatchingSimple() {
-		String desease = "cold";
+		String disease = "cold";
 		String[] factors = {"cough", "fever", "headsick"};
-		String desease2 = "sick";
+		String disease2 = "sick";
 		String[] factors2 = {"headsick"};
-		String desease3 = "cancer";
+		String disease3 = "cancer";
 		String[] factors3 = {"fever"};
-		m.addRecord(desease, factors);
-		m.addRecord(desease2, factors2);
-		m.addRecord(desease3, factors3);
+		m.addRecord(disease, factors);
+		m.addRecord(disease2, factors2);
+		m.addRecord(disease3, factors3);
 		assertEquals(3, m.matchesCount());
 		String s = "";
 		while (!s.equals("cough")) {
