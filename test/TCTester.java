@@ -159,4 +159,25 @@ public class TCTester extends TestCase {
 		assertEquals("cold", r);
 	}
 	
+	public void testNoMatchingSimple() {
+		String disease = "cold";
+		String[] factors = {"cough", "fever", "headsick"};
+		String disease2 = "sick";
+		String[] factors2 = {"headsick"};
+		String disease3 = "cancer";
+		String[] factors3 = {"fever"};
+		m.addRecord(disease, factors);
+		m.addRecord(disease2, factors2);
+		m.addRecord(disease3, factors3);
+		assertEquals(3, m.matchesCount());
+		String s;
+		while (true) {
+			s = m.getNextFactor();
+			if (s == null)
+				break;
+			m.applyAnswer(false);
+		}
+		assertEquals(0, m.matchesCount());
+	}
+	
 }
