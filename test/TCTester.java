@@ -1,7 +1,5 @@
 package test;
 
-import java.io.BufferedReader;
-import java.io.PrintWriter;
 import java.util.Random;
 import java.util.TreeSet;
 
@@ -9,10 +7,7 @@ import terap.TControl;
 import junit.framework.TestCase;
 
 public class TCTester extends TestCase {
-
 	
-	BufferedReader in;
-	PrintWriter out;
 	TControl m;
 	Random r;
 	
@@ -141,6 +136,27 @@ public class TCTester extends TestCase {
 		}
 		m.applyAnswer(true);
 		assertEquals(2, m.matchesCount());
+	}
+	
+	public void testMatchingSimple() {
+		String desease = "cold";
+		String[] factors = {"cough", "fever", "headsick"};
+		String desease2 = "sick";
+		String[] factors2 = {"headsick"};
+		String desease3 = "cancer";
+		String[] factors3 = {"fever"};
+		m.addRecord(desease, factors);
+		m.addRecord(desease2, factors2);
+		m.addRecord(desease3, factors3);
+		assertEquals(3, m.matchesCount());
+		String s = "";
+		while (!s.equals("cough")) {
+			s = m.getNextFactor();
+		}
+		m.applyAnswer(true);
+		assertEquals(1, m.matchesCount());
+		String r = m.match();
+		assertEquals("cold", r);
 	}
 	
 }
