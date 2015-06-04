@@ -34,6 +34,8 @@ public class TControl {
 	}
 	
 	public void applyAnswer(boolean ans) {
+		if (matchesCount() == 0)
+			return;
 		String factor = vfactors.get(curFactor);
 		String cur = matchedDiseases.first();
 		while (cur != null) {
