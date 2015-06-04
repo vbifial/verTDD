@@ -95,10 +95,33 @@ public class TCTester extends TestCase {
 		String[] factors2 = {"headsick"};
 		String desease3 = "cancer";
 		String[] factors3 = {"fever"};
+		String desease4 = "cold2";
+		String[] factors4 = {"cough"};
 		m.addRecord(desease, factors);
 		m.addRecord(desease2, factors2);
 		m.addRecord(desease3, factors3);
-		assertEquals(3, m.matchesCount());
+		m.addRecord(desease4, factors4);
+		assertEquals(4, m.matchesCount());
+	}
+	
+	public void testFactorsIterationSimple() {
+		String desease = "cold";
+		String[] factors = {"cough", "fever", "headsick"};
+		String desease2 = "sick";
+		String[] factors2 = {"headsick"};
+		String desease3 = "cancer";
+		String[] factors3 = {"fever"};
+		m.addRecord(desease, factors);
+		m.addRecord(desease2, factors2);
+		m.addRecord(desease3, factors3);
+		int cnt = 0;
+		while (true) {
+			String s = m.getNextFactor();
+			if (s == null)
+				break;
+			cnt++;
+		}
+		assertEquals(cnt, 3);
 	}
 	
 }
