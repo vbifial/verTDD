@@ -8,6 +8,9 @@ public class TControl {
 	
 	public void addRecord(String desease, String[] factors) {
 		
+		for (int i = 0; i < factors.length; i++) {
+			checkFactor(factors[i]);
+		}
 	}
 	
 	public String getNextFactor() {
